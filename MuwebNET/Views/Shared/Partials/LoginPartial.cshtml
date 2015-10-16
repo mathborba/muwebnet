@@ -1,10 +1,21 @@
-﻿<!-- Login Form (Pode editar a gosto, caso queira mudar a posição do Login, não esqueça de alterar o _Layout.cshtml, ou criar um novo Layout)-->
-<form class="navbar-form navbar-right" role="search">
-    <div class="form-group">
-        <input type="text" class="form-control" name="cpuser" placeholder="Usuário">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" name="cppass" placeholder="Senha">
-    </div>
-    <button type="submit" class="btn btn-default">Entrar</button>
-</form>
+﻿@using MUwebNET.Web.Framework
+@if (!SessionManager.Current.Logged)
+{
+    <form class="navbar-form navbar-right" role="log">
+        <div class="form-group">
+            <input type="text" class="form-control" name="cpuser" placeholder="Usuário">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="cppass" placeholder="Senha">
+        </div>
+        <button type="submit" class="btn btn-default">Entrar</button>
+    </form>
+}
+else
+{
+    <p>Bem-vindo(a), @SessionManager.Current.Name</p>
+    <ul>
+        <li><a href="@Url.Action("MinhaConta","Cliente")">Painel</a></li>
+        <li><a class="btn btn-danger" href="@Url.Action("Sair","Cliente")">Sair</a></li>
+    </ul>
+}
