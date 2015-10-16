@@ -59,6 +59,10 @@
     <Compile Include="Session\SessionManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MuwebNET.Bll\MuwebNET.Bll.csproj">
+      <Project>{9e738c22-bf28-4517-82c2-a8feba10d71e}</Project>
+      <Name>MuwebNET.Bll</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MuwebNET.Data\MuwebNET.Data.csproj">
       <Project>{c8ce0f19-d468-47ae-a5eb-377c4a482153}</Project>
       <Name>MuwebNET.Data</Name>

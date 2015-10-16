@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MUwebNET.Web.Framework.Models;
 using System.Web;
-using MuwebNET.Models.GameContext;
+using MuwebNET.Bll.GameContext;
 
 namespace MUwebNET.Web.Framework
 {
@@ -55,22 +55,18 @@ namespace MUwebNET.Web.Framework
 
         public static void Logon(string usuario, string senha)
         {
-            using (var db = new GameDbContext())
+            var u = Account.VerifyLogin(usuario, senha);
+            if (u != null)
             {
-                var authUser = db.Accounts.Where(x => x.memb___id == usuario && x.memb__pwd == senha).FirstOrDefault();
+                HttpContext.Current.Response.Cookies[NameCookie].Value = u.memb_name.Encrypt();
+                HttpContext.Current.Response.Cookies[NameUserID].Value = u.memb_guid.ToString().Encrypt();
+                HttpContext.Current.Response.Cookies[NameCtlCode].Value = u.ctl1_code.ToString().Encrypt();
+                HttpContext.Current.Response.Cookies[NameID].Value = new Guid().ToString().Encrypt();
 
-                if (authUser != null)
-                {
-                    HttpContext.Current.Response.Cookies[NameCookie].Value = authUser.memb_name.Encrypt();
-                    HttpContext.Current.Response.Cookies[NameUserID].Value = authUser.memb_guid.ToString().Encrypt();
-                    HttpContext.Current.Response.Cookies[NameCtlCode].Value = authUser.ctl1_code.ToString().Encrypt();
-                    HttpContext.Current.Response.Cookies[NameID].Value = new Guid().ToString().Encrypt();
-
-                    HttpContext.Current.Response.Cookies[NameCookie].Expires = DateTime.Now.AddHours(4);
-                    HttpContext.Current.Response.Cookies[NameUserID].Expires = DateTime.Now.AddHours(4);
-                    HttpContext.Current.Response.Cookies[NameCtlCode].Expires = DateTime.Now.AddHours(4);
-                    HttpContext.Current.Response.Cookies[NameID].Expires = DateTime.Now.AddHours(4);
-                }
+                HttpContext.Current.Response.Cookies[NameCookie].Expires = DateTime.Now.AddHours(4);
+                HttpContext.Current.Response.Cookies[NameUserID].Expires = DateTime.Now.AddHours(4);
+                HttpContext.Current.Response.Cookies[NameCtlCode].Expires = DateTime.Now.AddHours(4);
+                HttpContext.Current.Response.Cookies[NameID].Expires = DateTime.Now.AddHours(4);
             }
         }
 

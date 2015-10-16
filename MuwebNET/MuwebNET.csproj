@@ -184,13 +184,17 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MuwebNET.Bll\MuwebNET.Bll.csproj">
+      <Project>{9e738c22-bf28-4517-82c2-a8feba10d71e}</Project>
+      <Name>MuwebNET.Bll</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MuwebNET.Data\MuwebNET.Data.csproj">
       <Project>{c8ce0f19-d468-47ae-a5eb-377c4a482153}</Project>
       <Name>MuwebNET.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MUwebNET.Web.Framework\MUwebNET.Web.Framework.csproj">
+    <ProjectReference Include="..\MUwebNET.Web.Framework\MuwebNET.Web.Framework.csproj">
       <Project>{f673be18-f69d-4318-b63a-75d210065a7e}</Project>
-      <Name>MUwebNET.Web.Framework</Name>
+      <Name>MuwebNET.Web.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
