@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuwebNET.Tests", "MuwebNET.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MUwebNET.Web.Framework", "MUwebNET.Web.Framework\MUwebNET.Web.Framework.csproj", "{F673BE18-F69D-4318-B63A-75D210065A7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuwebNET.Data", "MuwebNET.Data\MuwebNET.Data.csproj", "{C8CE0F19-D468-47AE-A5EB-377C4A482153}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F673BE18-F69D-4318-B63A-75D210065A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F673BE18-F69D-4318-B63A-75D210065A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F673BE18-F69D-4318-B63A-75D210065A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8CE0F19-D468-47AE-A5EB-377C4A482153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8CE0F19-D468-47AE-A5EB-377C4A482153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8CE0F19-D468-47AE-A5EB-377C4A482153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8CE0F19-D468-47AE-A5EB-377C4A482153}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -135,29 +135,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\GameContext\Account.cs" />
-    <Compile Include="Models\GameContext\AccountCharacter.cs" />
-    <Compile Include="Models\GameContext\AccountStat.cs" />
-    <Compile Include="Models\GameContext\Character.cs" />
-    <Compile Include="Models\GameContext\GameContext.cs" />
-    <Compile Include="Models\GameContext\Guild.cs" />
-    <Compile Include="Models\GameContext\GuildMember.cs" />
-    <Compile Include="Models\GameContext\Warehouse.cs" />
-    <Compile Include="Models\WebContext\WebContext.cs" />
-    <Compile Include="Models\WebContext\WebDownloads.cs" />
-    <Compile Include="Models\WebContext\WebNewsletters.cs" />
-    <Compile Include="Models\WebContext\WebFaq.cs" />
-    <Compile Include="Models\WebContext\WebSlider.cs" />
-    <Compile Include="Models\WebContext\WebNews.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\imgs\header-char.png" />
+    <Content Include="Content\muweb.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\muweb.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
@@ -182,9 +170,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\Partials\LoginPartial.cshtml" />
+    <Content Include="Views\Shared\Partials\HeaderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -193,6 +184,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MuwebNET.Data\MuwebNET.Data.csproj">
+      <Project>{c8ce0f19-d468-47ae-a5eb-377c4a482153}</Project>
+      <Name>MuwebNET.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MUwebNET.Web.Framework\MUwebNET.Web.Framework.csproj">
       <Project>{f673be18-f69d-4318-b63a-75d210065a7e}</Project>
       <Name>MUwebNET.Web.Framework</Name>
