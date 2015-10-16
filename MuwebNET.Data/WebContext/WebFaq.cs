@@ -22,6 +22,8 @@ namespace MuwebNET.Models.WebContext
         public int Id { get; set; }
         public string Title { get; set; }
         public int CategoryID { get; set; }
+        [ForeignKey("CategoryID")]
+        public WebFAQCategory Category { get; set; }
         public string HtmlDescription { get; set; }
         public string UrlFriendly { get; set; }
         public string Author { get; set; }
