@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuwebNET.Models.GameContext;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,11 @@ namespace MuwebNET.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            using (var db = new GameDbContext())
+            {
+                var personagens = db.Characters.ToList();
+                return View(personagens);
+            }
         }
 
         public ActionResult About()

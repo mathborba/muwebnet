@@ -1,5 +1,11 @@
-﻿@{
+﻿@model List<MuwebNET.Models.GameContext.Character>
+@{
     ViewBag.Title = "Home Page";
+}
+
+@foreach(var item in Model)
+{
+    <p>@item.Name</p>
 }
 
 <div class="jumbotron">

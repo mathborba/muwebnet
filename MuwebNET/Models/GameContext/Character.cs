@@ -16,7 +16,7 @@ namespace MuwebNET.Models.GameContext
         public int cLevel { get; set; }
         public int LevelUpPoint { get; set; }
         public Byte Class { get; set; }
-        public int Experience { get; set; }
+        public long Experience { get; set; }
         public int Strength { get; set; }
         public int Dexterity { get; set; }
         public int Vitality { get; set; }
