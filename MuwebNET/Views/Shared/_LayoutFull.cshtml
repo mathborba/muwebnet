@@ -49,18 +49,9 @@
                                 @ViewBag.Title
                             </li>
                         </ul>
-                        <section class="gContsViewWrap">
-                            <div class="tmp_m_content">
-                                <div class="tmp_page_content">
-                                    @RenderBody()
-                                </div>
-                            </div>
-                        </section>
-                        <section class="gContsInfoWrap">
-                            <div class="gContsInfoBg">
-                                @Html.Partial("Partials/SidebarPartial")
-                            </div>
-                        </section>
+                        <article class="pageFullWrap">
+                            @RenderBody()
+                        </article>
                     </section>
                 </div>
             </div>
