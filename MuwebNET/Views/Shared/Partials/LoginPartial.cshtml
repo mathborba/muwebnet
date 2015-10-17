@@ -1,17 +1,101 @@
 ﻿@using MUwebNET.Web.Framework
 @if (!SessionManager.Current.Logged)
 {
+    <script type="text/javascript">
+        $(function () {
+            $("#frmLogin").submit(function (e) {
+                e.preventDefault();
+                var data = $(this).serialize();
+
+                $.ajax({
+                    url: '@Url.Action("Login","Account")',
+                    type: 'POST',
+                    data: data,
+                    success: function (result) {
+                        if (result.sucesso) {
+                            toastr["success"](result.mensagem, "Sucesso!")
+
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            }
+
+                            setTimeout(function () {
+                                location.reload(true);
+                            }, 250);
+
+                        } else {
+                            toastr["error"](result.mensagem, "Ocorreu um problema!")
+
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            }
+                        }
+                    }, error: function () {
+                        toastr["error"](result.mensagem, "Ocorreu um problema!")
+
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": true,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        }
+                    }
+                });
+
+                return false;
+            });
+        });
+    </script>
     <form method="post" action="#" name="uss_login_form" id="frmLogin">
         <div align="left" style="width: 280px; margin-top: 10px; margin-bottom: 10px;">
             <div style="margin-top: 20px;"></div>
             <div style="float:left; width: 100px; font-size: 12px; line-height: 20px;">Usuário:</div>
             <div style="float:left; width: 180px;">
-                <input type="text" value="" name="uss_id" class="field" style="width: 177px;" maxlength="10"></div>
+                <input type="text" value="" name="usuario" class="field" style="width: 177px;" maxlength="10"></div>
             <div style="clear:both;"></div>
             <div style="margin-top: 10px;"></div>
             <div style="float:left; width: 100px; font-size: 12px; line-height: 20px;">Senha:</div>
             <div style="float:left; width: 180px;">
-                <input type="password" value="" name="uss_password" class="field" style="width: 177px;" maxlength="12"></div>
+                <input type="password" value="" name="senha" class="field" style="width: 177px;" maxlength="12"></div>
             <input type="hidden" name="process_login">
             <div style="clear:both;"></div>
         </div>
@@ -21,16 +105,35 @@
             <div style="float:right;">
                 <input type="submit" class="small_button" value="Login">
             </div>
-            <div style="float:left;"><a href="~/cliente/cadastrar">» Jogue agora!</a></div>
+            <div style="float:left;"><a href="~/cliente/cadastro">» Jogue agora!</a></div>
             <div style="clear:both;"></div>
         </div>
     </form>
 }
 else
 {
-    <p>Bem-vindo(a), @SessionManager.Current.Name</p>
-    <ul>
-        <li><a href="@Url.Action("MinhaConta","Cliente")">Painel</a></li>
-        <li><a class="btn btn-danger" href="@Url.Action("Sair","Cliente")">Sair</a></li>
-    </ul>
+    <div class="menuSubWrap">
+        <menu>
+            <ul>
+                <li><a href="index.php?page_id=user_cp&amp;panel=reset_character">Meus Personagens</a></li>
+                <li><a href="index.php?page_id=user_cp&amp;panel=grandreset">Meu báu</a></li>
+                <li><a href="index.php?page_id=user_cp&amp;panel=add_points">Adicionar pontos</a></li>
+                <li><a href="index.php?page_id=user_cp&amp;panel=clear_pk">Limpar PK</a></li>
+                <li><a href="index.php?page_id=user_cp&amp;panel=StatsRR">Desbloquear personagem</a></li>
+                <li><a href="index.php?page_id=user_cp&amp;panel=unstuck_character">Resetar</a></li>
+                <li><a href="index.php?page_id=user_cp&amp;panel=unstuck_character">Suporte</a></li>
+                @if(SessionManager.Current.CtlCode >= 8)
+                {
+                    <li><a href="@Url.Action("Index","Admin")">Painel Administrativo</a></li>
+                }
+            </ul>
+        </menu>
+        <div style="width:260px; height:37px; padding-left:20px; padding-top: 6px;">
+            <button class="small_button" style="float:left;">
+                <a href="~/cliente/">Minha conta</a>
+            </button><button class="small_button" style="float:right;">
+                <a href="~/cliente/sair">Sair</a>
+            </button>
+        </div>
+    </div>
 }

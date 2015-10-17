@@ -135,6 +135,7 @@
     <Compile Include="Controllers\DownloadsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\RankingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,6 +147,7 @@
     <Content Include="Content\css\gnb.css" />
     <Content Include="Content\css\jquery.bxslider.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\toastr.css" />
     <Content Include="Content\cursor\MU.cur" />
     <Content Include="Content\cursor\MU_hover.cur" />
     <Content Include="Content\images\bg_side_banner_bottom.gif" />
@@ -157,6 +159,18 @@
     <Content Include="Content\images\btn_over_bg_left.gif" />
     <Content Include="Content\images\btn_over_bg_right.gif" />
     <Content Include="Content\images\bx_loader.gif" />
+    <Content Include="Content\images\class\bm.gif" />
+    <Content Include="Content\images\class\dk.gif" />
+    <Content Include="Content\images\class\dl.gif" />
+    <Content Include="Content\images\class\dm.gif" />
+    <Content Include="Content\images\class\dw.gif" />
+    <Content Include="Content\images\class\elf.gif" />
+    <Content Include="Content\images\class\gm.gif" />
+    <Content Include="Content\images\class\hi.gif" />
+    <Content Include="Content\images\class\le.gif" />
+    <Content Include="Content\images\class\mg.gif" />
+    <Content Include="Content\images\class\sm.gif" />
+    <Content Include="Content\images\class\su.gif" />
     <Content Include="Content\images\controls.png" />
     <Content Include="Content\images\download_btnWrap_bg_bottom.gif" />
     <Content Include="Content\images\download_btnWrap_bg_top.gif" />
@@ -187,7 +201,8 @@
     <Content Include="Content\images\snb_bottom_bg.gif" />
     <Content Include="Content\images\snb_top_bg.gif" />
     <Content Include="Content\images\sub_nav_bg_bottom.gif" />
-    <Content Include="Content\images\sub_nav_bg_top %281%29.gif" />
+    <Content Include="Content\images\sub_nav_bg_list_off.gif" />
+    <Content Include="Content\images\sub_nav_bg_list_over.gif" />
     <Content Include="Content\images\sub_nav_bg_top.gif" />
     <Content Include="Content\images\sub_nav_title_bg_20120710.gif" />
     <Content Include="favicon.ico" />
@@ -195,6 +210,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\MuwebNet Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\core_global.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -204,6 +220,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -228,6 +245,10 @@
     <Content Include="Views\Downloads\Index.cshtml" />
     <Content Include="Views\Account\Create.cshtml" />
     <Content Include="Views\Account\Donate.cshtml" />
+    <Content Include="Views\Rankings\Index.cshtml" />
+    <Content Include="Views\Rankings\Partials\CharsPartial.cshtml" />
+    <Content Include="Views\Rankings\Partials\GuildsPartial.cshtml" />
+    <Content Include="Views\Rankings\Partials\FilterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

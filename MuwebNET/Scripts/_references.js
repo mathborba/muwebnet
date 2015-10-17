@@ -6,3 +6,4 @@
 /// <reference path="core_global.js" />
 /// <reference path="main.min.js" />
 /// <reference path="jquery.bxslider.js" />
+/// <reference path="toastr.min.js" />

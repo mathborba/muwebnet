@@ -7,6 +7,12 @@ using System.Web;
 
 namespace MuwebNET.Models.GameContext
 {
+    public enum GuildRankingOrderBy
+    {
+        Score = 0,
+        Name = 1
+    }
+
     [Table("Guild")]
     public class Guild
     {
@@ -14,5 +20,7 @@ namespace MuwebNET.Models.GameContext
         public string G_Name { get; set; }
         public Byte[] G_Mark { get; set; }
         public string G_Master { get; set; }
+        public int G_Score { get; set; }
+        public string G_Notice { get; set; }
     }
 }

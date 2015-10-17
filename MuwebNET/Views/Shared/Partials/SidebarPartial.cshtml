@@ -1,4 +1,6 @@
-﻿<h2 class="title" id="h1Title">Minha conta</h2>
+﻿<h2 class="title" id="h1Title">
+    @(MUwebNET.Web.Framework.SessionManager.Current.Logged ? "Olá, " + @MUwebNET.Web.Framework.SessionManager.Current.Name : "Minha conta")
+</h2>
 <div class="box_bottom"></div>
 @Html.Partial("Partials/LoginPartial")
 <article class="gSubInfoBox">
@@ -9,51 +11,18 @@
             <div style="cursor: pointer;" onclick="ranking.tab('crywolf');return false;"><span>Guilds</span></div>
         </h3>
         <ul id="Ranktab1">
-            <li>
-                <div style="float:left; padding-right:20px;"> 1 </div>
-                <div style="float:left">
-                    <strong>
-                        KILL
-                    </strong>
-                </div>
-                <div style="float:right">400 [<b><font color="orange"> 0 </font></b>] [<b><font color="gold"> 10 </font></b>]</div>
-            </li>
-            <li>
-                <div style="float:left; padding-right:20px;"> 2 </div>
-                <div style="float:left">
-                    <strong>
-                        MASTERWIZ
-                    </strong>
-                </div>
-                <div style="float:right">1 [<b><font color="orange"> 7 </font></b>] [<b><font color="gold"> 9 </font></b>]</div>
-            </li>
-            <li>
-                <div style="float:left; padding-right:20px;"> 3 </div>
-                <div style="float:left">
-                    <strong>
-                        Aragorn
-                    </strong>
-                </div>
-                <div style="float:right">400 [<b><font color="orange"> 65 </font></b>] [<b><font color="gold"> 6 </font></b>]</div>
-            </li>
-            <li>
-                <div style="float:left; padding-right:20px;"> 4 </div>
-                <div style="float:left">
-                    <strong>
-                        UnderTaker
-                    </strong>
-                </div>
-                <div style="float:right">400 [<b><font color="orange"> 44 </font></b>] [<b><font color="gold"> 5 </font></b>]</div>
-            </li>
-            <li>
-                <div style="float:left; padding-right:20px;"> 5 </div>
-                <div style="float:left">
-                    <strong>
-                        Hydras
-                    </strong>
-                </div>
-                <div style="float:right">400 [<b><font color="orange"> 36 </font></b>] [<b><font color="gold"> 5 </font></b>]</div>
-            </li>
+            @foreach (var person in MuwebNET.Bll.GameContext.Character.GetRankings(5, MuwebNET.Models.GameContext.CharacterRankingType.All, MuwebNET.Models.GameContext.CharacterRankingOrderBy.Resets))
+            {
+                <li>
+                    <div style="float:left; padding-right:20px;"> 1 </div>
+                    <div style="float:left">
+                        <strong>
+                            @person.Name
+                        </strong>
+                    </div>
+                    <div style="float:right">@person.cLevel [<b><font color="orange"> @person.Resets </font></b>] [<b><font color="gold"> @person.GrandResets </font></b>]</div>
+                </li>
+            }
         </ul>
     </article>
     <article class="mainRankBox" id="MainRankingtap2" style="display:none;">
@@ -62,56 +31,23 @@
             <div style="cursor: pointer;" onclick="ranking.tab('crywolf');return false;"><strong>Guilds</strong></div>
         </h3>
         <ul id="Ranktab1">
-            <li>
-                <div style="float:left; padding-right:20px;"> 1 </div>
-                <div style="float:left">
-                    <strong>
-                        Rangers
-                    </strong>
-                </div>
-                <div style="float:right">[<b><font color="orange"> DanaboL </font></b>] [<b><font color="gold"> 21 </font></b>]</div>
+            @foreach (var guild in MuwebNET.Bll.GameContext.Guild.GetRankings(5))
+            {
+                <li>
+                    <div style="float:left; padding-right:20px;"> 1 </div>
+                    <div style="float:left">
+                        <strong>
+                            @guild.G_Name
+                        </strong>
+                    </div>
+                    <div style="float:right">[<b><font color="orange"> @guild.G_Master </font></b>] [<b><font color="gold"> @guild.G_Score </font></b>]</div>
             </li>
-            <li>
-                <div style="float:left; padding-right:20px;"> 2 </div>
-                <div style="float:left">
-                    <strong>
-                        L0Y4LTY
-                    </strong>
-                </div>
-                <div style="float:right">[<b><font color="orange"> AtlaSeL </font></b>] [<b><font color="gold"> 14 </font></b>]</div>
-            </li>
-            <li>
-                <div style="float:left; padding-right:20px;"> 3 </div>
-                <div style="float:left">
-                    <strong>
-                        FraTia
-                    </strong>
-                </div>
-                <div style="float:right">[<b><font color="orange"> Malau </font></b>] [<b><font color="gold"> 11 </font></b>]</div>
-            </li>
-            <li>
-                <div style="float:left; padding-right:20px;"> 4 </div>
-                <div style="float:left">
-                    <strong>
-                        ChampS
-                    </strong>
-                </div>
-                <div style="float:right">[<b><font color="orange"> DarkHero </font></b>] [<b><font color="gold"> 2 </font></b>]</div>
-            </li>
-            <li>
-                <div style="float:left; padding-right:20px;"> 5 </div>
-                <div style="float:left">
-                    <strong>
-                        EXPLADE
-                    </strong>
-                </div>
-                <div style="float:right">[<b><font color="orange"> SAHMARAN </font></b>] [<b><font color="gold"> 2 </font></b>]</div>
-            </li>
+            }
         </ul>
     </article>
 </article>
 <article class="gSubInfoBox">
-    <h2>Nosso servidor<a href="~/nosso-servidor" class="more">» mais</a></h2>
+    <h2>Nosso servidor<a href="~/comunidade/nosso-servidor" class="more">» mais</a></h2>
     <div class="mainCsBox">
         <div style="width:280px; padding: 10px 10px 10px 10px;">
             <br><li>
@@ -124,23 +60,24 @@
                 <span><font size="2">Taxa de Drop:</font></span><font size="2"><strong>65%</strong></font>
             </li>
             <br><li>
-                <span><font size="2">Status:</font></span><font size="2"><strong>Online</strong></font>
+                <span><font size="2">Status:</font></span><font size="2"><strong>@MuwebNET.Bll.WebContext.WebConfig.GetAvaibleServerConnectState()</strong></font>
             </li>
         </div>
     </div>
 </article>
-<h2 class="title" id="h1Title">Programação dos eventos</h2>
+@*<h2 class="title" id="h1Title">Programação dos eventos</h2>
 <img src="@Url.Content("~/Content/images/sub_nav_bg_top.gif")">
 <div class="menuSubWrap">
     <div style="width:280px; padding: 10px 10px 10px 10px;">
-        <dl id="events"><dt class="event"><b class="rightfloat">0-4:0-30</b><b>Blood Castle</b><span><div class="rightfloat">01:31:55</div>Opens in</span></dt><dt class="event"><b class="rightfloat">0-4:00</b><b>Chaos Castle</b><span><div class="rightfloat">01:01:55</div>Opens in</span></dt><dt class="event"><b class="rightfloat">0-1:00</b><b>Devil Square</b><span><div class="rightfloat">04:01:55</div>Opens in</span></dt><dt class="event"><b class="rightfloat">16:30</b><b>CryWolf Event</b><span><div class="rightfloat">21:31:55</div>Starts in</span></dt><dt class="event"><b class="rightfloat">19:45</b><b>White Wizard</b><span><div class="rightfloat">00:46:55</div>Starts in</span></dt><dt class="event"><b class="rightfloat">0-4:0-45</b><b>Skeleton King</b><span><div class="rightfloat">01:16:55</div>Starts in</span></dt><dt class="event"><b class="rightfloat">19:00</b><b>Golden Invasion</b><span><div class="rightfloat">00:01:55</div>Starts in</span></dt><dt class="event"><b class="rightfloat">0-2:0-45</b><b>Kundun Invasion</b><span><div class="rightfloat">03:16:55</div>Starts in</span></dt><dt class="event"><b class="rightfloat">19:40</b><b>Auto Drop Event</b><span><div class="rightfloat">00:41:55</div>Starts in</span></dt></dl>
+        <dl id="events">
+            <dt class="event">
+            <b class="rightfloat">0-4:0-30</b><b>Blood Castle</b><span><div class="rightfloat">01:31:55</div>Opens in</span></dt><dt class="event"><b class="rightfloat">0-4:00</b><b>Chaos Castle</b><span><div class="rightfloat">01:01:55</div>Opens in</span></dt><dt class="event"><b class="rightfloat">0-1:00</b><b>Devil Square</b><span><div class="rightfloat">04:01:55</div>Opens in</span></dt><dt class="event"><b class="rightfloat">16:30</b><b>CryWolf Event</b><span><div class="rightfloat">21:31:55</div>Starts in</span></dt><dt class="event"><b class="rightfloat">19:45</b><b>White Wizard</b><span><div class="rightfloat">00:46:55</div>Starts in</span></dt><dt class="event"><b class="rightfloat">0-4:0-45</b><b>Skeleton King</b><span><div class="rightfloat">01:16:55</div>Starts in</span></dt><dt class="event"><b class="rightfloat">19:00</b><b>Golden Invasion</b><span><div class="rightfloat">00:01:55</div>Starts in</span></dt><dt class="event"><b class="rightfloat">0-2:0-45</b><b>Kundun Invasion</b><span><div class="rightfloat">03:16:55</div>Starts in</span></dt><dt class="event"><b class="rightfloat">19:40</b><b>Auto Drop Event</b><span><div class="rightfloat">00:41:55</div>Starts in</span></dt></dl>
     </div>
 </div>
-<img src="@Url.Content("~/Content/images/sub_nav_bg_bottom.gif")">
+<img src="@Url.Content("~/Content/images/sub_nav_bg_bottom.gif")">*@
 <!--<ul class="mainSnsWrap">
 <li><a href="https://www.facebook.com/lastmu" target="_blank"><img src="./News - Last MU - Season 3 MU Online_files/facebook.gif" alt="facebook"></a></li>
 <li><a href="http://twitter.com/LastMUOnline" target="_blank"><img src="./News - Last MU - Season 3 MU Online_files/twitter.gif" alt="tweeter"></a></li>
 <li><a href="http://www.youtube.com/lastmu" target="_blank"><img src="./News - Last MU - Season 3 MU Online_files/youtube.gif" alt="youtube"></a></li>
 <li><a href="http://forum.last-mu.net/" target="_blank"><img src="./News - Last MU - Season 3 MU Online_files/community.gif" alt="youtube"></a></li>
 </ul> -->
-

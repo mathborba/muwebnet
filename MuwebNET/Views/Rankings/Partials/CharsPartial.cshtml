@@ -1,0 +1,31 @@
+﻿@model List<MuwebNET.Models.GameContext.Character>
+<table border="0" cellspacing="4" cellpadding="0" width="100%" style="margin-top: 10px;">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td align="center" rowspan="3" class="iR_rank">@(Model.IndexOf(item) + 1)</td>
+                <td align="left" class="iR_name">@item.Name</td>
+                <td align="left" rowspan="3" width="60"><img src="~/content/images/class/@(MUwebNET.Web.Framework.Helpers.ClassHelper.ToShortString(item.Class)).gif" width="60" height="60"></td>
+                <td align="left" class="iR_stats">FOR: @item.Strength</td>
+                <td align="left" class="iR_stats">VIT: @item.Vitality</td>
+                <td align="left" class="iR_stats">Mapa: @MUwebNET.Web.Framework.Helpers.MapHelper.ToString(item.MapNumber)</td>
+            </tr>
+            <tr>
+                <td align="left" class="iR_class">@MUwebNET.Web.Framework.Helpers.ClassHelper.ToString(item.Class)</td>
+                <td align="left" class="iR_stats">AGI: @item.Dexterity</td>
+                <td align="left" class="iR_stats">ENE: @item.Energy</td>
+                <td align="left" class="iR_stats_level">Level 400</td>
+            </tr>
+            <tr>
+                <td align="left" class="iR_status"></td>
+                <td align="left" class="iR_status"></td>
+                <td align="left" class="iR_stats">COM: @item.Leadership</td>
+                <td align="left" class="iR_stats_reset">Resets @item.Resets, Grand Resets @item.GrandResets</td>
+            </tr>
+            <tr>
+                <td colspan="6" style="background-image:url(~/Content/images/inner_line.jpg); background-repeat:repeat-x;">&nbsp;</td>
+            </tr>
+        }
+    </tbody>
+</table>

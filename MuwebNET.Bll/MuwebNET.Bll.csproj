@@ -46,10 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameContext\Guild.cs" />
     <Compile Include="GameContext\Character.cs" />
     <Compile Include="GameContext\Account.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebContext\WebDownloads.cs" />
+    <Compile Include="WebContext\WebConfig.cs" />
     <Compile Include="WebContext\WebSlider.cs" />
     <Compile Include="WebContext\WebNews.cs" />
   </ItemGroup>

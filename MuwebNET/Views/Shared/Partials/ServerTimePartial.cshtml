@@ -1,14 +1,12 @@
 ﻿<script type="text/javascript">
-    var serverTime = new Date();
-
-    function updateTime() {
-        serverTime = new Date(serverTime.getTime() + 1000);
-        $('#timecontainer').html(serverTime.toGMTString());
+    var horarioServidor = new Date();
+    function atualizarHorario() {
+        horarioServidor = new Date(horarioServidor.getTime() + 1000);
+        $('#timecontainer').html(horarioServidor.toGMTString());
     }
-
     $(function () {
-        updateTime();
-        setInterval(updateTime, 1000);
+        atualizarHorario();
+        setInterval(atualizarHorario, 1000);
     });
 </script>
 <section>

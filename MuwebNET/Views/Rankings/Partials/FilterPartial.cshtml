@@ -1,0 +1,100 @@
+﻿@{
+    string rankFilterType = ViewBag.rankType;
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnCallRanking").click(function () {
+            var rankCall = '@rankFilterType';
+            var data = (rankCall == "chars" ? {
+                rankType : $("#char_type").val(),
+                orderBy : $("#char_orderby").val()
+            } : {
+                orderBy: $("#guild_orderby").val()
+            });
+
+            var url = (rankCall == "chars" ? "@Url.Action("RankingChars","Rankings")" : "@Url.Action("RankingGuilds", "Rankings")");
+
+            $.ajax({
+                url: url,
+                data: data,
+                type: 'GET',
+                success: function (html) {
+                    toastr["info"]("Resultados filtrados!", "MU Ranking")
+
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": true,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "9000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                    $(".ranking-content").html(html);
+                }
+            })
+        });
+    });
+</script>
+
+@if (rankFilterType == "chars")
+{
+    <p><strong>Você está no momento filtrando resultados para PERSONAGENS.</strong></p>
+    <table border="0" cellspacing="10" cellpadding="0" width="100%" style="margin-top: 10px;" align="center">
+        <tbody>
+            <tr>
+                <td align="left" class="iRg_text" style="padding-left: 24px;">Classe</td>
+                <td align="left">
+                    <select name="country" class="iRg_input" id="char_type">
+                        <option value="all">Todas</option>
+                    </select>
+                </td>
+                <td align="left"></td>
+            </tr>
+            <tr>
+                <td align="left" class="iRg_text" style="padding-left: 24px;">Ordenar por</td>
+                <td align="left" class="iRg_gender">
+                    <select name="country" class="iRg_input" id="char_orderby">
+                        <option value="resets">Resets</option>
+                    </select>
+                </td>
+                <td align="left"></td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    <p><strong>Você está no momento filtrando resultados para GUILDS.</strong></p>
+    <table border="0" cellspacing="10" cellpadding="0" width="100%" style="margin-top: 10px;" align="center">
+        <tbody>
+            <tr>
+                <td align="left" class="iRg_text" style="padding-left: 24px;">Ordenar por</td>
+                <td align="left" class="iRg_gender">
+                    <select name="country" class="iRg_input" id="guild_orderby">
+                        <option value="score">Pontuação</option>
+                        <option value="name">Nome</option>
+                    </select>
+                </td>
+                <td align="left"></td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+<button class="small_button" id="btnCallRanking">
+    <span class="label">Exibir ranking</span>
+</button>
+
+<div class="ranking-content">
+
+</div>

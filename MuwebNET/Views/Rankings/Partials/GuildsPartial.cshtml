@@ -1,0 +1,26 @@
+﻿@model List<MuwebNET.Models.GameContext.Guild>
+
+<table border="0" cellspacing="4" cellpadding="0" width="100%" style="margin-top: 10px;">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td align="center" rowspan="3" class="iR_rank">@(Model.IndexOf(item) + 1)</td>
+                <td align="left" class="iR_name">@item.G_Name</td>
+                <td align="left" rowspan="3" width="60">@Html.Raw(MUwebNET.Web.Framework.Helpers.GMarkHelper.ToTableString(item.G_Mark, 6))</td>
+                <td align="left" class="iR_stats">Guild Master: @item.G_Master</td>
+            </tr>
+            <tr>
+                <td align="left" class="iR_class">Clã de Jogadores</td>
+                <td align="left" class="iR_stats_level">Score: @item.G_Score</td>
+            </tr>
+            <tr>
+                <td align="left" class="iR_status"></td>
+                <td align="left" class="iR_stats_reset">News: @(item.G_Notice != null ? item.G_Notice : "Sem aviso")</td>
+            </tr>
+            <tr>
+                <td colspan="6" style="background-image:url(~/Content/images/inner_line.jpg); background-repeat:repeat-x;">&nbsp;</td>
+            </tr>
+        }
+    </tbody>
+</table>

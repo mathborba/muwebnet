@@ -7,6 +7,28 @@ using System.Web;
 
 namespace MuwebNET.Models.GameContext
 {
+    public enum CharacterRankingType
+    {
+        All = 0,
+        OnlyBk = 1,
+        OnlySm = 2,
+        OnlyElf = 3,
+        OnlySum = 4,
+        OnlyMg = 5,
+        OnlyDl = 6,
+        OnlyRf = 7
+    }
+
+    public enum CharacterRankingOrderBy
+    {
+        Resets = 0,
+        GResets = 1,
+        Exp = 2,
+        Level = 3,
+        PkLevel = 4,
+        Zen = 5
+    }
+
     [Table("Character")]
     public class Character
     {
@@ -21,6 +43,7 @@ namespace MuwebNET.Models.GameContext
         public int Dexterity { get; set; }
         public int Vitality { get; set; }
         public int Energy { get; set; }
+        public int Leadership { get; set; }
         public Int16 MapNumber { get; set; }
         public Int16 MapPosX { get; set; }
         public Int16 MapPosY { get; set; }

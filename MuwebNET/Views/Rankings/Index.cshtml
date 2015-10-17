@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Rankings";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnPersonagens").click(function () {
+            toastr["info"]("Você selecionou o ranking de 'Players'", "MU Ranking")
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "9000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            $.ajax({
+                url: '@Url.Action("Filter","Rankings")',
+                data: { rankType: 'chars' },
+                type: 'GET',
+                success: function (pageData) {
+                    $(".filter-ranking").html(pageData).fadeIn(150);
+                }
+            });
+        });
+
+        $("#btnGuilds").click(function () {
+            toastr["info"]("Você selecionou o ranking de 'Guilds'", "MU Ranking")
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "9000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            $.ajax({
+                url: '@Url.Action("Filter","Rankings")',
+                data: { rankType: 'guilds' },
+                type: 'GET',
+                success: function (pageData) {
+                    $(".filter-ranking").html(pageData).fadeIn(150);
+                }
+            });
+        });
+    });
+</script>
+
+<article class="newslistStyle">
+    <h1>Rankings</h1>
+    <div class="content-type-filter">
+        <button class="small_button" id="btnPersonagens">
+            <span class="label">Players</span>
+        </button>
+        <button class="small_button" id="btnGuilds">
+            <span class="label">Guilds</span>
+        </button>
+    </div>
+</article>
+
+<div class="filter-ranking" style="display: none;margin-top: 15px;border: 1px dashed #333;padding: 15px;background: #121111;">
+
+</div>
+
