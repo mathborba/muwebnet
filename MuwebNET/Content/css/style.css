@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 html,body{font:normal 12px/1.2 tahoma,Arial,Verdana;line-height:18px;color:#cdc39f;background:#000;}
 html,body,form,input,label,select,option,button,textarea,div,p,pre,blockquote,img,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,li{margin:0;padding:0;}
 img{vertical-align:top;}
@@ -64,7 +64,7 @@ textarea{padding:4px 4px 4px 4px;}td{padding:4px;}.space5{clear:both;height:5px;
 /* ie6 hack */
 #GameNavi ul {_float:left;_width:910px;_padding-left:70px;}, #GameNavi li {_float:left;}
 /* ie6 hack */
-#GameNavi li a.depth01 {display:block;padding:0 13px;font:bold 14px/1.2 Arial, Verdana;color:#999;}
+#GameNavi li a.depth01 {display:block;padding:0 13px;font:bold 14px/1.2 Arial, Verdana;color:#999; transition: all 0.4s;}
 #GameNavi li a.depth01:hover {color:#ffb400;text-decoration:none;}
 #GameNavi li.on {font:bold 14px/1.2 Arial, Verdana;color:#ff0000;}
 #GameNavi li.on a.depth01 {color:orange;}
@@ -225,7 +225,7 @@ html>/**/body .gMainPromWrap .rollingIcon button span, x:-moz-any-link, x:defaul
 .newslistStyle .gameSnsWrap li {float:left;padding-right:5px;}
 .newlistContsView {clear:both;padding:10px 0;font:normal 14px/1.5 Arial, Verdana, sans-serif;color:#aaa;}
 .newlistContsView a, .newlistContsView a:hover {font:normal 14px/1.5 Arial, Verdana, sans-serif;color:#ff6600;}
-.newslistViewBtn {clear:both;padding:20px 0 50px 20px;overflow:hidden;}
+.newslistViewBtn {clear:both;padding:13px 0 50px 5px;overflow:hidden;}
 .newslistViewBtn .arrow {float:left;}
 .newslistViewBtn .list {float:right;}
 .newlistContsView ul, .newlistContsView ul li {list-style-type: disc;}

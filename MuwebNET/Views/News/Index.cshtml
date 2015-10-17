@@ -1,0 +1,20 @@
+﻿@model MuwebNET.Models.WebContext.WebNews
+@{
+    ViewBag.Title = Model.Title;
+}
+<div class="newsWrap">
+    <article class="newslistStyle">
+        <h1>@Model.Title</h1>
+        <div class="dateInfo">
+            <span class="SprIco even">Noticias</span><time>publicada em @Model.Date.ToString("dd-MM-yyyy hh:mm")</time>
+        </div>
+        <div class="newlistContsView">
+            @Html.Raw(Model.HtmlContent)
+        </div>
+    </article>
+    <div class="newslistViewBtn">
+        <a href="~/" class="btnStyle01" rel="">
+            <div class="btnleft"></div><div class="btncenter">Voltar para ínicio</div><div class="btnright"></div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+﻿@model List<MuwebNET.Models.WebContext.WebSlider>
+
+<link href="@Url.Content("~/Content/css/jquery.bxslider.css")" rel="stylesheet" />
+
+<script src="@Url.Content("~/Scripts/jquery.bxslider.js")"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.bxslider').bxSlider({
+            mode: 'fade',
+            captions: true
+        });
+    });
+</script>
+
+@if (Model.Count() > 0)
+{
+    <ul class="bxslider">
+        @foreach (var item in Model)
+        {
+            <li><img src="@item.ImageLink" alt="@item.Title" title="@item.Description" /></li>
+        }
+    </ul>
+}

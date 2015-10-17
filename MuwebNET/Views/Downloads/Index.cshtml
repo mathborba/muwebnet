@@ -1,0 +1,97 @@
+﻿@model List<MuwebNET.Models.WebContext.WebDownloads>
+@{
+    ViewBag.Title = "Central de Downloads";
+    Layout = "~/Views/Shared/_LayoutFull.cshtml";
+}
+
+<h2 class="top">Central de Downloads</h2>
+<p class="downTxt">Baixe e instale o nosso cliente para desfrutar de nosso servidor.</p>
+
+@if (Model.Count() > 0)
+{
+    var downloadEmDestaque = Model.Take(1).FirstOrDefault();
+    if (downloadEmDestaque != null)
+    {
+        <article class="downBtnWrap">
+            <div class="downBtnBox">
+
+                <div class="direct"><a href="@downloadEmDestaque.Url" rel="">@downloadEmDestaque.Name</a></div>
+                <p class="patch">
+                    Item:
+                    <strong>
+                        @downloadEmDestaque.Description
+                    </strong>
+                </p>
+            </div>
+        </article>
+    }
+
+    foreach (var item in Model.Skip(1))
+    {
+        <article class="newslistStyle">
+            <center>
+                <h1 class="top">@item.Name</h1>
+                <font color="grey">@item.Description</font><br><br><br><br>
+                <button class="small_button" onclick="javascript:document.location='@item.Url'">
+                    <span class="label">Baixar @item.Name</span>
+                </button>
+            </center>
+        </article>
+    }
+}
+else
+{
+    <p>Não existem opções de download cadastradas até o momento!</p>
+}
+
+<h2>Requisitos do Sistema</h2>
+<p class="downTxt">Verifique as especificações de seu sistema para garantir que ele é capaz de executar o jogo selecionado.</p>
+<table width="100%" class="systemSpce" cellspacing="0" cellpadding="0">
+    <colgroup>
+        <col width="50%">
+        <col width="50%">
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Componente</th>
+            <th>Requisitos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Sistema Operacional</td>
+            <td>Windows XP</td>
+        </tr>
+        <tr>
+            <td>Processador</td>
+            <td>Pentium 4 – 2.0 Ghz or Higher</td>
+        </tr>
+        <tr>
+            <td>Memória do sistema</td>
+            <td>1 GB or higher</td>
+        </tr>
+        <tr>
+            <td>Placa de Vídeo</td>
+            <td>3D graphics processor</td>
+        </tr>
+        <tr>
+            <td>Versão do DirectX</td>
+            <td>DirectX 9.0c or higher</td>
+        </tr>
+        <tr>
+            <td>Espaço no Disco Rígido</td>
+            <td>2GB or Higher</td>
+        </tr>
+    </tbody>
+</table>
+<div class="line940"></div>
+<h2>Baixar Drivers</h2>
+<p class="downTxt">Certifique-se de ter os drivers mais recentes. Os links abaixo o ajudarão a atualizar os drivers de acordo com o seu sistema.</p>
+<ul class="downLinkEtc">
+    <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=35" target="_blank" rel="nofollow"><img src="http://image.webzen.net/mu/content/down_link_etc01.gif" alt="Microsoft DirectX"></a></li>
+    <li><a href="http://www.nvidia.com/Download/index.aspx?lang=en-us" target="_blank" rel="nofollow"><img src="http://image.webzen.net/mu/content/down_link_etc02.gif" alt="GeForce Graphic Card"></a></li>
+    <li><a href="http://support.amd.com/us/gpudownload/Pages/index.aspx" target="_blank" rel="nofollow"><img src="http://image.webzen.net/mu/content/down_link_etc03.gif" alt="Radeon Graphic Card"></a></li>
+    <li><a href="http://downloadcenter.intel.com/default.aspx" target="_blank" rel="nofollow"><img src="http://image.webzen.net/mu/content/down_link_etc04.gif" alt="Intel Graphic Card"></a></li>
+    <li><a href="http://www.matrox.com/graphics/en/corpo/support/drivers/home.php" target="_blank" rel="nofollow"><img src="http://image.webzen.net/mu/content/down_link_etc05.gif" alt="Matrox Graphic Card"></a></li>
+    <li><a href="http://w3.sis.com/download/agreement.php" target="_blank" rel="nofollow"><img src="http://image.webzen.net/mu/content/down_link_etc06.gif" alt="SiS Graphic Card"></a></li>
+</ul>

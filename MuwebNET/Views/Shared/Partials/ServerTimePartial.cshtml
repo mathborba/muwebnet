@@ -1,8 +1,21 @@
-﻿<section>
+﻿<script type="text/javascript">
+    var serverTime = new Date();
+
+    function updateTime() {
+        serverTime = new Date(serverTime.getTime() + 1000);
+        $('#timecontainer').html(serverTime.toGMTString());
+    }
+
+    $(function () {
+        updateTime();
+        setInterval(updateTime, 1000);
+    });
+</script>
+<section>
     <article>
         <div class="server_time">
-            Horário do Servidor &amp; (Oficial):&nbsp;
-            <span id="timecontainer">16/10/2015 23:57:12</span>
+            Horário do Servidor (Oficial):&nbsp;
+            <span id="timecontainer">@DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss")</span>
         </div>
         <!--<ul class="flagWrap">
         <li class="first">Language</li>

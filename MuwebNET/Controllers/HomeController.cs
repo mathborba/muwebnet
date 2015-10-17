@@ -10,13 +10,17 @@ namespace MuwebNET.Controllers
 {
     public class HomeController : Controller
     {
+        [OutputCache(Duration=10,Location=System.Web.UI.OutputCacheLocation.Server)]
         public ActionResult Index()
         {
-            using (var db = new GameDbContext())
-            {
-                var personagens = db.Characters.ToList();
-                return View(personagens);
-            }
+            var model = Bll.WebContext.WebNews.GetNewsHomepage();
+            return View(model);
+        }
+
+        public PartialViewResult IndexSliders()
+        {
+            var model = Bll.WebContext.WebSlider.GetSlidersHomepage();
+            return PartialView("Partials/SlidersPartial", model);
         }
 
         [VerifyAuthOrPermission]

@@ -16,6 +16,7 @@ namespace MuwebNET.Models.WebContext
         public string Description { get; set; }
         public string Url { get; set; }
         public Boolean Active { get; set; }
+        public Boolean Principal { get; set; }
         public DateTime Date { get; set; }
     }
 }

@@ -131,7 +131,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DownloadsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -141,6 +144,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\gnb.css" />
+    <Content Include="Content\css\jquery.bxslider.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\cursor\MU.cur" />
     <Content Include="Content\cursor\MU_hover.cur" />
@@ -149,6 +153,14 @@
     <Content Include="Content\images\btn_off_bg_center.gif" />
     <Content Include="Content\images\btn_off_bg_left.gif" />
     <Content Include="Content\images\btn_off_bg_right.gif" />
+    <Content Include="Content\images\btn_over_bg_center.gif" />
+    <Content Include="Content\images\btn_over_bg_left.gif" />
+    <Content Include="Content\images\btn_over_bg_right.gif" />
+    <Content Include="Content\images\bx_loader.gif" />
+    <Content Include="Content\images\controls.png" />
+    <Content Include="Content\images\download_btnWrap_bg_bottom.gif" />
+    <Content Include="Content\images\download_btnWrap_bg_top.gif" />
+    <Content Include="Content\images\download_btn_bg.jpg" />
     <Content Include="Content\images\footer.png" />
     <Content Include="Content\images\f_global_div.gif" />
     <Content Include="Content\images\f_line_right_img.gif" />
@@ -156,6 +168,7 @@
     <Content Include="Content\images\game_gst_bg_20120710.png" />
     <Content Include="Content\images\g_line_center.gif" />
     <Content Include="Content\images\header_wrap_bg.gif" />
+    <Content Include="Content\images\icon_more_arrow01.gif" />
     <Content Include="Content\images\location_20120712_bg.gif" />
     <Content Include="Content\images\main_ranking_list_jum.gif" />
     <Content Include="Content\images\main_ranking_list_line.gif" />
@@ -186,6 +199,7 @@
     <Content Include="Scripts\core_global.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.bxslider.js" />
     <Content Include="Scripts\Main.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
@@ -201,8 +215,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\Partials\LoginPartial.cshtml" />
@@ -211,6 +223,11 @@
     <Content Include="Views\Shared\Partials\MenuPartial.cshtml" />
     <Content Include="Views\Shared\Partials\ServerTimePartial.cshtml" />
     <Content Include="Views\Shared\Partials\SidebarPartial.cshtml" />
+    <Content Include="Views\Home\Partials\SlidersPartial.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Downloads\Index.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\Donate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
