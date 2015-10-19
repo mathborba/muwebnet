@@ -1,8 +1,6 @@
 ﻿@model List<MuwebNET.Models.WebContext.WebSlider>
-
-<link href="@Url.Content("~/Content/css/jquery.bxslider.css")" rel="stylesheet" />
-
-<script src="@Url.Content("~/Scripts/jquery.bxslider.js")"></script>
+<link href="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Content/css/jquery.bxslider.css")" rel="stylesheet" />
+<script src="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Scripts/jquery.bxslider.js")"></script>
 <script type="text/javascript">
     $(function () {
         $('.bxslider').bxSlider({
@@ -11,7 +9,6 @@
         });
     });
 </script>
-
 @if (Model.Count() > 0)
 {
     <ul class="bxslider">

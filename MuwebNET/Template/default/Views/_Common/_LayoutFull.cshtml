@@ -5,31 +5,22 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="-1">
     <meta http-equiv="Cache-Control" content="no-cache">
-    <link rel="canonical" href="#">
-    <meta name="author" content="Webzen">
-    <meta name="generator" content="MUCore 1.0.8">
-    <meta name="keywords" content="news,announcementes,free,kill,awesome,fun,game,muonline,lastmu,season3">
-    <meta name="description" content="Global News">
     <title>MUwebNET :: @ViewBag.Title</title>
+    <meta name="author" content="Webzen">
     <meta name="keywords" content="MU, MU online">
     <meta name="description" content="Private MU Online server">
-    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/css/style.css")">
-    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/css/gnb.css")">
-    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/css/toastr.css")">
+    <link type="text/css" rel="stylesheet" href="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Content/css/style.css")">
+    <link type="text/css" rel="stylesheet" href="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Content/css/gnb.css")">
+    <link type="text/css" rel="stylesheet" href="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Content/css/toastr.css")">
     <link href="~/favicon.ico" type="image/x-icon" rel="shortcut icon">
     <style>
-        body, a {
-            cursor: url('@Url.Content("~/Content/Cursor/MU.cur")'),auto;
-        }
-
-            a:hover {
-                cursor: url('@Url.Content("~/Content/Cursor/MU_hover.cur")'),auto;
-            }
+        body, a { cursor: url('@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Content/Cursor/MU.cur")'),auto; }
+        a:hover { cursor: url('@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Content/Cursor/MU_hover.cur")'),auto; }
     </style>
-    <script src="@Url.Content("~/Scripts/jquery-1.10.2.js")"></script>
-    <script src="@Url.Content("~/Scripts/main.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/core_global.js")"></script>
-    <script src="@Url.Content("~/Scripts/toastr.min.js")"></script>
+    <script src="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Scripts/jquery-1.10.2.js")"></script>
+    <script src="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Scripts/main.min.js")"></script>
+    <script src="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Scripts/core_global.js")"></script>
+    <script src="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Scripts/toastr.min.js")"></script>
     @RenderSection("styles", required: false)
 </head>
 <body>
@@ -66,14 +57,14 @@
                     <dt>Servidor público, gratuito para jogar. O nosso servidor é 100% gratuito, e apenas aceitamos doações para arcar com os gastos e manutenção de hospedagem.</dt>
                 </dl>
                 <div class="sliceImg">
-                <img src="@Url.Content("~/Content/images/f_line_right_img.gif")" alt=""></div>
+                    <img src="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Content/images/f_line_right_img.gif")" alt=""></div>
             </article>
             <br><br><br>
             <center>
-                <img src="@Url.Content("~/Content/images/footer.png")">
+                <img src="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Content/images/footer.png")">
             </center>
             <article class="f_copyright">
-                <div><img src="@Url.Content("~/Content/images/f_logo.gif")" alt="Webzen"></div>
+                <div><img src="@MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Content/images/f_logo.gif")" alt="Webzen"></div>
                 <small>
                     WEBZEN Inc. Global Digital Entertainment Leader<br>
                     Copyright - WEBZEN, INC. Todos os direitos reservados (c)

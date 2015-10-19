@@ -1,7 +1,7 @@
 ﻿@model List<MuwebNET.Models.WebContext.WebDownloads>
 @{
     ViewBag.Title = "Central de Downloads";
-    Layout = "~/Views/Shared/_LayoutFull.cshtml";
+    Layout = MUwebNET.Web.Framework.HtmlHelperExtensions.UrlTemplateHelper("/Views/_Common/_LayoutFull.cshtml").ToString();
 }
 
 <h2 class="top">Central de Downloads</h2>

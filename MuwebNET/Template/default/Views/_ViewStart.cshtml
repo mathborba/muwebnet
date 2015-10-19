@@ -1,0 +1,4 @@
+﻿@{
+    var templateLocation = System.Configuration.ConfigurationManager.AppSettings["WebTemplateLocation"].ToString();
+    Layout = "~/Template/" + templateLocation + "/Views/_Common/_Layout.cshtml";
+}
