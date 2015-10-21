@@ -10,30 +10,36 @@ namespace MuwebNET.Controllers
 {
     public class HomeController : Controller
     {
-        [OutputCache(Duration=10,Location=System.Web.UI.OutputCacheLocation.Server)]
         public ActionResult Index()
         {
-            var model = Bll.WebContext.WebNews.GetNewsHomepage();
+            string cacheName = "muNet_webNewsHome";
+
+            List<Models.WebContext.WebNews> model = new List<Models.WebContext.WebNews>();
+            if (!cacheName.HasCache())
+            {
+                model = Bll.WebContext.WebNews.GetNewsHomepage();
+                model.AddCache(cacheName, DateTime.Now.AddMinutes(30));
+            }
+            else
+                model = model.GetCache(cacheName);
+
             return View(model);
         }
 
         public PartialViewResult IndexSliders()
         {
-            var model = Bll.WebContext.WebSlider.GetSlidersHomepage();
+            string cacheName = "muNet_webSlidersHome";
+
+            List<Models.WebContext.WebSlider> model = new List<Models.WebContext.WebSlider>();
+            if (!cacheName.HasCache())
+            {
+                model = Bll.WebContext.WebSlider.GetSlidersHomepage();
+                model.AddCache(cacheName, DateTime.Now.AddMinutes(30));
+            }
+            else
+                model = model.GetCache(cacheName);
+
             return PartialView("Partials/SlidersPartial", model);
-        }
-
-        [VerifyAuthOrPermission]
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-            return View();
         }
     }
 }

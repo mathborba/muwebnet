@@ -23,16 +23,29 @@ namespace MuwebNET.Controllers
 
         public ActionResult RankingGuilds(string orderBy)
         {
+            string cacheName = "muNet_webRankings_Guild_" + orderBy;
+
+            List<Models.GameContext.Guild> model = new List<Models.GameContext.Guild>();
+
             Models.GameContext.GuildRankingOrderBy OrderBy = Models.GameContext.GuildRankingOrderBy.Score;
             if (orderBy == "name")
                 OrderBy = Models.GameContext.GuildRankingOrderBy.Name;
 
-            var model = Bll.GameContext.Guild.GetRankings(150, OrderBy);
+            if (!cacheName.HasCache())
+            {
+                model = Bll.GameContext.Guild.GetRankings(150, OrderBy);
+                model.AddCache(cacheName, DateTime.Now.AddMinutes(30));
+            }
+            else
+                model = model.GetCache(cacheName);
+
             return PartialView("Partials/GuildsPartial", model);
         }
 
         public ActionResult RankingChars(string type, string orderBy)
         {
+            string cacheName = "muNet_webRankings_Chars_" + type + "_" + orderBy;
+
             Models.GameContext.CharacterRankingType rankType = Models.GameContext.CharacterRankingType.All;
             Models.GameContext.CharacterRankingOrderBy rankOrderBy = Models.GameContext.CharacterRankingOrderBy.Resets;
 
@@ -85,7 +98,16 @@ namespace MuwebNET.Controllers
             }
             #endregion
 
-            var model = Bll.GameContext.Character.GetRankings(150, rankType, rankOrderBy);
+            List<Models.GameContext.Character> model = new List<Models.GameContext.Character>();
+
+            if (!cacheName.HasCache())
+            {
+                model = Bll.GameContext.Character.GetRankings(150, rankType, rankOrderBy);
+                model.AddCache(cacheName, DateTime.Now.AddMinutes(30));
+            }
+            else
+                model = model.GetCache(cacheName);
+
             return PartialView("Partials/CharsPartial", model);
         }
     }

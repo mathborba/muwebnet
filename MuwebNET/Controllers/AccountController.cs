@@ -9,6 +9,8 @@ namespace MuwebNET.Controllers
 {
     public class AccountController : Controller
     {
+        [MUwebNET.Web.Framework.Filters.VerifyAuthOrPermission()]
+        [Route("cliente/minha-conta")]
         public ActionResult Index()
         {
             return View();
@@ -18,6 +20,12 @@ namespace MuwebNET.Controllers
         [Route("cliente/cadastro")]
         public ActionResult Create()
         {
+            if(SessionManager.Current.Logged)
+            {
+                ViewBag.Message = "Você não pode criar uma nova conta, enquanto estiver logado!";
+                return View("CreateDenied");
+            }
+
             var model = new MuwebNET.Models.GameContext.Account();
             return View(model);
         }
@@ -25,13 +33,17 @@ namespace MuwebNET.Controllers
         [HttpPost]
         public ActionResult Create(MuwebNET.Models.GameContext.Account model)
         {
+            var modelErrors = ModelState.Values.SelectMany(m => m.Errors)
+                                    .Select(e => e.ErrorMessage)
+                                    .ToList();
+
             if(ModelState.IsValid)
             {
                 Bll.GameContext.Account.Create(model);
                 return Json(new { sucesso = false, id = model.memb___id }, JsonRequestBehavior.AllowGet);
             }
 
-            return Json(new { sucesso = false, id = "" }, JsonRequestBehavior.AllowGet);
+            return Json(new { sucesso = false, id = "", modelError = modelErrors }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -57,7 +69,7 @@ namespace MuwebNET.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { sucesso = false, mensagem = "Erro ao processar autenticação." }, JsonRequestBehavior.AllowGet);
+                return Json(new { sucesso = false, mensagem = "Erro ao processar autenticação.", modelError = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
 

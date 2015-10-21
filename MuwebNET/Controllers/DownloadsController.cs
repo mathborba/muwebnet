@@ -12,8 +12,18 @@ namespace MuwebNET.Controllers
         // GET: Downloads
         public ActionResult Index()
         {
-            var downloads = Bll.WebContext.WebDownloads.GetDownloads();
-            return View(downloads);
+            string cacheName = "muNet_webDownloads";
+
+            List<Models.WebContext.WebDownloads> model = new List<Models.WebContext.WebDownloads>();
+            if (!cacheName.HasCache())
+            {
+                model = Bll.WebContext.WebDownloads.GetDownloads();
+                model.AddCache(cacheName, DateTime.Now.AddHours(2));
+            }
+            else
+                model = model.GetCache(cacheName);
+
+            return View(model);
         }
     }
 }

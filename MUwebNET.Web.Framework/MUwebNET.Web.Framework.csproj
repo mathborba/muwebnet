@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Filters\AuthorizationFilter.cs" />
+    <Compile Include="Helpers\Cache.cs" />
     <Compile Include="Helpers\ClassHelper.cs" />
     <Compile Include="Helpers\Crypto.cs" />
     <Compile Include="Helpers\Extensions.cs" />
