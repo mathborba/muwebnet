@@ -8,7 +8,7 @@ Technology: ASP.NET MVC5, Code First w/Migrations, EntityFramework 6.0, HangFire
 
 Special thanks to Hangfire Team (http://hangfire.io).
 --------------------------------------------------------------------------
--- Modules in this source
+Modules in this source
 --------------------------------------------------------------------------
 - News Module
 - Downloads Module
